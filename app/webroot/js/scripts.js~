@@ -1,0 +1,7 @@
+$(function(){
+  $(".comment_info").click(function(){
+    $(".tog").slideToggle("slow");
+    return false;
+  });
+});
+
