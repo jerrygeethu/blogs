@@ -84,7 +84,7 @@
 		
 		//validation for pwd/confirm pwd						
 		function validConfirm($data)
-		{
+		{print_r($data);
 			if ($this->data['User']['password'] !== $data['confirm_password'])
 			{
 				return false;

@@ -34,6 +34,7 @@
 				$ins['phone_no']=$this->data['User']['phone_no'];
 				$ins['username']=Sanitize::html($this->data['User']['username'],array('remove' => true));				
 				$ins['password']=Sanitize::html($this->data['User']['password'],array('remove' => true));	
+				$ins['confirm_password']=Sanitize::html($this->data['User']['confirm_password'],array('remove' => true));	
 				$ins['role']=$this->data['User']['role'];			
 				
 				$insert = Sanitize::clean($ins, array('encode' => false));
@@ -72,13 +73,9 @@
 			$this->set('name', $name);//var name set as name for list of the registered in user
 			if ($this->request->is('post'))
 			{
-				$this->User->create();
+				$this->User->create();		
 				
-				$update['id']=$this->data['User']['id'];
-				$update['password']=$this->data['User']['password'];
-				$update['role']=$this->data['User']['role'];
-				
-				if ($this->User->save($update)) 
+				if ($this->User->save($this->data)) 
 				{
 					$this->Session->setFlash(__('The user role has been set'));
 					$this->redirect(array('controller' => 'blogs','action' => 'index'));
