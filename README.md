@@ -1,39 +1,52 @@
-CakePHP
-=======
+Blog using CakePHP
+==================
 
-[![CakePHP](http://cakephp.org/img/cake-logo.png)](http://www.cakephp.org)
+Note: The blog is developed using CAKEPHP 2.2.2 in Ubuntu OS   
+      Environment.
 
-CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Active Record, Association Data Mapping, Front Controller and MVC.
-Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
+  1. The blog is publicly viewable. 
+  2. The blog is updated by a blog Owner. 
 
-Some Handy Links
-----------------
 
-[CakePHP](http://www.cakephp.org) - The rapid development PHP framework
+      There are three users named by super admin, admin and author. 
 
-[Cookbook](http://book.cakephp.org) - THE Cake user documentation; start learning here!
+		a. Super Admin : 
+			    There is only one super admin with userid=1.
+			    Got all permission plus role setting for both author and admin.
 
-[Plugins](http://plugins.cakephp.org/) - A repository of extensions to the framework
+		b. Admin:  
+			    There may be more than one admin.
+			    Got all the permission but role setting only for authors . 
 
-[The Bakery](http://bakery.cakephp.org) - Tips, tutorials and articles
+		c. Author : 
+			    Got only  permission to add post and comments for all the post. Author can 
+		    	    edit/delete his own post. The new registered users are treated as author. 
 
-[API](http://api.cakephp.org) - A reference to Cake's classes
+  3. We can login as Super Admin, Admin, and Auther
 
-[CakePHP TV](http://tv.cakephp.org) - Screen casts from events and video tutorials
+  4. Registration form is created. 
+	    Email address and username are unique. 8 Digit phone number is validated. Username limit 3 to 15 characters.Password/confirm password is checked and password need at least 5 characters and one numeric is must.  
 
-[The Cake Software Foundation](http://cakefoundation.org/) - promoting development related to CakePHP
+  5. Only Registered users can post comment. They can comment  
+     for any post in the blog. This is stored in database in table named as ‘comments’ which contains the fields:  id 
+     (comment id-primary key), title (comment title), desc (comment description), blog_id (indicates comment from  
+     which post), user_id (user who comment) and created (date/
+     time the comment is posted) , where blog_id,  user_id are the foreign keys. So if you want to delete the blog post or user details, you must delete all the comments first  followed by the post and user.
 
-Get Support!
-------------
+  6.  Show number of comments for each entry 
+  7.  Show date of each entry
+  8.  Show the Title and part of the Body 
 
-[Our Google Group](http://groups.google.com/group/cake-php) - community mailing list and forum
+  		It will also shown the name of the owner of each post and name  of the person who login at that time. 
 
-[#cakephp](http://webchat.freenode.net/?channels=#cakephp) on irc.freenode.net - Come chat with us, we have cake.
-
-[Q & A](http://ask.cakephp.org/) - Ask questions here, all questions welcome
-
-[Lighthouse](http://cakephp.lighthouseapp.com/) - Got issues? Please tell us!
-
-[![Bake Status](https://secure.travis-ci.org/cakephp/cakephp.png?branch=master)](http://travis-ci.org/cakephp/cakephp)
-
-![Cake Power](https://raw.github.com/cakephp/cakephp/master/lib/Cake/Console/Templates/skel/webroot/img/cake.power.gif)
+  9.  Admin can Edit/delete for all users (Author). Author can 
+      Edit/delete his own post. 
+  10. Associated Comments appears here. 
+  11. Post a Comment form appears here.
+  12. Each blog entry can have multiple comments by other Users
+  13. features 
+  		a. Sorting options: Blog post is sorted by asc/desc on 
+  		   title, content and date using ajax
+		b. User registration: Done 
+		c. Interactive User Interfaces: Done 
+		d. Pagination: Ajax pagination is Done 
